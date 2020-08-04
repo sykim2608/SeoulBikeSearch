@@ -36,9 +36,8 @@ public class BikeController {
      * @return 자전거 대여 정보 리스트
      */
     @RequestMapping(value = "/bike", method = RequestMethod.GET)
-     public @ResponseBody List<Row> getBike(Model model) {
+     public @ResponseBody List<Row> getBike() {
         List<Row> list = bikeService.searchBike();
-        model.addAttribute("bikeList",list);
         return list;
     }
 
