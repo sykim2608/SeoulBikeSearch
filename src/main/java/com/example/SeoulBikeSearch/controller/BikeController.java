@@ -4,6 +4,7 @@ import com.example.SeoulBikeSearch.model.bike.Row;
 import com.example.SeoulBikeSearch.service.BikeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -35,8 +36,9 @@ public class BikeController {
      * @return 자전거 대여 정보 리스트
      */
     @RequestMapping(value = "/bike", method = RequestMethod.GET)
-     public @ResponseBody List<Row> getBike() {
+     public @ResponseBody List<Row> getBike(Model model) {
         List<Row> list = bikeService.searchBike();
+        model.addAttribute("bikeList",list);
         return list;
     }
 

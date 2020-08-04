@@ -19,8 +19,8 @@ public class BikeServiceImpl implements BikeService {
     @Override
     public List<Row> searchBike() {
         Gson gson = new Gson();
-        String str1 = httpUtil.requestApi(1,100);
-        String str2 = httpUtil.requestApi(101,200);
+        String str1 = httpUtil.requestApi(1,1000);
+        String str2 = httpUtil.requestApi(1001,2000);
 
         List<Row> list1 = gson.fromJson(str1, ApiResponse.class).getRentBikeStatus().getRow();
         List<Row> list2 = gson.fromJson(str2, ApiResponse.class).getRentBikeStatus().getRow();
